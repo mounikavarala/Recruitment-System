@@ -1,6 +1,6 @@
 import React from 'react';
 
-class jobInfoPage extends React.Component{
+class JobInfoPage extends React.Component{
 
   render(){
     return(
@@ -9,5 +9,5 @@ class jobInfoPage extends React.Component{
   }
 }
 
-export default jobInfoPage;
+export default JobInfoPage;
 
