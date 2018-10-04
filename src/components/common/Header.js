@@ -4,14 +4,16 @@ import {Link, IndexLink } from 'react-router';
 const Header = () => {
   return(
     <nav>
-      <IndexLink to="/" activeClassName="active"> Jobinfo </IndexLink>
+      <IndexLink to="/" activeClassName="active"> HomePage </IndexLink>
       {"|"}
-      <Link to = "/Jobtitle" activeClassName="active"> Jobtitle </Link>VCF
+      <Link to = "/JobListPage" activeClassName="active"> Job List </Link>
       {"|"}
-      <Link to = "/Contactdetails" activeClassName="active"> Contactdetails </Link>
+      <Link to = "/jobInfoPage" activeClassName="active"> Job Info </Link>
+
 
     </nav>
   );
 };
 
 export default Header;
+
