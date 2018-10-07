@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import JobInfoRow from './JobInfoRow';
 
 const JobsList = ({jobsList}) => {
+  // const jobsList = filteredJobs;
   return(
     <table className="table">
       <thead>

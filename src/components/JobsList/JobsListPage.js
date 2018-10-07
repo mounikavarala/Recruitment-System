@@ -12,9 +12,11 @@ class JobsListPage extends React.Component{
   constructor(props, context) {
     super(props, context);
     this.state = {
-      filterJobs: Object.assign({}, this.props.filterJobs),
       searching:false
+      // allStates :this.props
     };
+
+
   }
 
   // JobInfoRow(jobInfo, index) {
@@ -31,16 +33,17 @@ class JobsListPage extends React.Component{
       });
   }
   render(){
-    const {jobsList} = this.props;
-    return(
+    const {filteredJobs} = this.props;
+    debugger;
+    return (
         <div>
-          <JobSearch/>
-          <JobsList jobsList={jobsList}/>
-          <JobSearch
-            errors={this.state.errors}
-            filterJobs={this.state.filterJobs}
-            filterCriteria={this.state.filterCriteria}
-          />
+
+          {/*<JobSearch*/}
+            {/*errors={this.state.errors}*/}
+            {/*filterJobs={this.state.filterJobs}*/}
+            {/*filterCriteria={this.state.filterCriteria}*/}
+          {/*/> */}
+          <JobsList jobsList={filteredJobs}/>
         </div>
     );
   }
@@ -48,11 +51,14 @@ class JobsListPage extends React.Component{
 
 JobsListPage.propTypes = {
   jobsList: PropTypes.array.isRequired,
+  filteredJobs: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 function mapStateToProps(state, ownProps){
+  debugger;
   return{
-    jobsList: state.jobsList
+    jobsList: state.jobsList,
+    filteredJobs: state.filteredJobsList
   };
 }
 

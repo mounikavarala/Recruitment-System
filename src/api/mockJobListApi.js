@@ -25,7 +25,7 @@ const jobsList = [
     title: "Software Developer",
     watchHref: "http://www.pluralsight.com/courses/architecting-applications-dotnet",
     city: "Santa Clara",
-    state: "California",
+    state: "Washington",
     category: "Developer",
     type: "Full Time"
   },
@@ -43,7 +43,7 @@ const jobsList = [
     title: "Validation Engineer",
     watchHref: "http://www.pluralsight.com/courses/architecting-applications-dotnet",
     city: "Santa Clara",
-    state: "California",
+    state: "Texas",
     category: "Engineer",
     type: "Full Time"
   },
@@ -52,7 +52,7 @@ const jobsList = [
     title: "Program Analyst",
     watchHref: "http://www.pluralsight.com/courses/architecting-applications-dotnet",
     city: "Santa Clara",
-    state: "California",
+    state: "Hawaiin",
     category: "Analyst",
     type: "Full Time"
   }
