@@ -9,12 +9,16 @@ import "./styles/styles.css"; //webpack can import CSS Files too!
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; //Bootstrap CSS
 import configureStore  from './store/configureStore';
 import {Provider} from 'react-redux';
+import {loadJobsList} from './actions/JobListActions';
 
 const store = configureStore();
+store.dispatch(loadJobsList());
+
 render (
   <Provider store={store}>
     <Router history={browserHistory} routes={routes}/>
   </Provider>,
   document.getElementById('App')
 );
+
 

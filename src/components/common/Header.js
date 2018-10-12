@@ -6,9 +6,9 @@ const Header = () => {
     <nav>
       <IndexLink to="/" activeClassName="active"> HomePage </IndexLink>
       {"|"}
-      <Link to = "/JobListPage" activeClassName="active"> Job List </Link>
+      <Link to = "/jobs-list" activeClassName="active"> Job List </Link>
       {"|"}
-      <Link to = "/jobInfoPage" activeClassName="active"> Job Info </Link>
+      <Link to = "/job-info" activeClassName="active"> Job Info </Link>
 
 
     </nav>

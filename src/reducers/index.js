@@ -1,9 +1,14 @@
 import {combineReducers} from 'redux';
-import JobLists from './JobListReducer';
+
+import {default as jobsList,
+  filterJobsReducer as filteredJobsList,
+  setFilterCriteriaReducer as filterCriteria} from "./JobListReducer";
+
 
 const rootReducer = combineReducers({
-  JobLists
-
+  jobsList,
+  filteredJobsList,
+  filterCriteria
 });
 
 export default rootReducer;
