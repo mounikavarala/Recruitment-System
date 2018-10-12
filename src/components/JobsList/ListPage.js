@@ -7,7 +7,6 @@ const JobsList = ({jobsList}) => {
     <table className="table">
       <thead>
       <tr>
-        <th>&nbsp;</th>
         <th>Job Title</th>
         <th>City</th>
         <th>State</th>

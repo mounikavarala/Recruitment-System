@@ -5,6 +5,7 @@ import * as PropTypes from "react/lib/ReactPropTypes";
 import {bindActionCreators} from 'redux';
 import JobsList from './ListPage';
 import JobSearch from "./JobSearchComponent";
+import * as toastr from "toastr";
 
 
 class JobsListPage extends React.Component{
@@ -12,9 +13,11 @@ class JobsListPage extends React.Component{
   constructor(props, context) {
     super(props, context);
     this.state = {
-      searching:false
-      // allStates :this.props
+      searching: false,
+      errors: {}
     };
+
+
 
 
   }
@@ -22,27 +25,42 @@ class JobsListPage extends React.Component{
   // JobInfoRow(jobInfo, index) {
   //   return <div key={index}>{jobInfo.title}</div>;
   // }
-  savefilterJobs(event){
-    event.preventDefault();
+  filterJobs(){
 
-    this.setState({searching: true});
-    this.props.actions.savefilterJobs(this.state.filterJobs)
-      .then(() => this.redirect())
-      .catch(errors => {
-        this.setState({searching: false});
-      });
   }
+  onChange(){
+
+  }
+
   render(){
     const {filteredJobs} = this.props;
-    debugger;
+    this.allStates = this.props.jobsList.map(function (jobInfo) {
+      return {
+        value:jobInfo.state,
+        text : jobInfo.state
+      };
+    });
+
+    
+
+    this.allJobTypes = this.props.jobsList.map(function (jobInfo) {
+      return {
+        value:jobInfo.type,
+        text : jobInfo.type
+      };
+    });
+
     return (
         <div>
-
-          {/*<JobSearch*/}
-            {/*errors={this.state.errors}*/}
-            {/*filterJobs={this.state.filterJobs}*/}
-            {/*filterCriteria={this.state.filterCriteria}*/}
-          {/*/> */}
+          <JobSearch
+            errors={this.state.errors}
+            filterJobs={this.filterJobs}
+            filterCriteria={this.props.filterCriteria}
+            allStates = {this.allStates}
+            allJobTypes={this.allJobTypes}
+            searching={this.state.searching}
+            onChange={this.onChange}
+          />
           <JobsList jobsList={filteredJobs}/>
         </div>
     );
@@ -52,13 +70,16 @@ class JobsListPage extends React.Component{
 JobsListPage.propTypes = {
   jobsList: PropTypes.array.isRequired,
   filteredJobs: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  filterCriteria: PropTypes.object.isRequired
 };
+
 function mapStateToProps(state, ownProps){
-  debugger;
+
   return{
     jobsList: state.jobsList,
-    filteredJobs: state.filteredJobsList
+    filteredJobs: state.filteredJobsList,
+    filterCriteria: state.filterCriteria
   };
 }
 

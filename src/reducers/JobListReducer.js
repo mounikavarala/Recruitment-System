@@ -11,7 +11,7 @@ export default function JobListReducer(state = [], action){
 }
 
 
-export function setFilterCriteriaReducer( state=[], action) {
+export function setFilterCriteriaReducer( state={}, action) {
   switch (action.type) {
     case types.SET_FILTER_CRITERIA:
       return (action.filterCriteria || {});
@@ -31,7 +31,7 @@ export function filterJobsReducer(state=[], action) {
 
 function filterJobs(jobsList=[], filterCriteria={}) {
 
-  let filteredJobList = jobsList.map((job) => {
+  let filteredJobList = jobsList.filter((job) => {
     return (!filterCriteria.type || filterCriteria.type === job.type) && (!filterCriteria.title || job.title.indexOf(filterCriteria.title) > -1) && job;
   });
 
